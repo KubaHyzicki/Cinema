@@ -222,4 +222,64 @@ public class Cinema {
 		throw new UnsupportedOperationException();
 	}
 
+	public User getUser() {
+		return this.user;
+	}
+
+	/**
+	 * 
+	 * @param user
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public boolean getLoggedIn() {
+		return this.loggedIn;
+	}
+
+	/**
+	 * 
+	 * @param loggedIn
+	 */
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	public DisplayedMovies getDisplayedMovies() {
+		return this.displayedMovies;
+	}
+
+	/**
+	 * 
+	 * @param displayedMovies
+	 */
+	public void setDisplayedMovies(DisplayedMovies displayedMovies) {
+		this.displayedMovies = displayedMovies;
+	}
+
+	public CustomerService getCustomerService() {
+		return this.customerService;
+	}
+
+	/**
+	 * 
+	 * @param customerService
+	 */
+	public void setCustomerService(CustomerService customerService) {
+		this.customerService = customerService;
+	}
+
+	public EmployeeManagement getEmployeeManagement() {
+		return this.employeeManagement;
+	}
+
+	/**
+	 * 
+	 * @param employeeManagement
+	 */
+	public void setEmployeeManagement(EmployeeManagement employeeManagement) {
+		this.employeeManagement = employeeManagement;
+	}
+
 }

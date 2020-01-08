@@ -28,4 +28,16 @@ public class Purchase {
 		throw new UnsupportedOperationException();
 	}
 
+	public Ticket getTicket() {
+		return this.ticket;
+	}
+
+	/**
+	 * 
+	 * @param ticket
+	 */
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 }

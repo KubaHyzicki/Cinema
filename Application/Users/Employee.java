@@ -21,4 +21,40 @@ public class Employee extends User {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	/**
+	 * 
+	 * @param lastName
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getEmployeeNo() {
+		return this.employeeNo;
+	}
+
+	/**
+	 * 
+	 * @param employeeNo
+	 */
+	public void setEmployeeNo(int employeeNo) {
+		this.employeeNo = employeeNo;
+	}
+
 }

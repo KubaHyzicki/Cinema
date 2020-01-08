@@ -20,4 +20,40 @@ public class LoginDetails {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getUserLogin() {
+		return this.userLogin;
+	}
+
+	/**
+	 * 
+	 * @param userLogin
+	 */
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public String getUserPassword() {
+		return this.userPassword;
+	}
+
+	/**
+	 * 
+	 * @param userPassword
+	 */
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getUserEmail() {
+		return this.userEmail;
+	}
+
+	/**
+	 * 
+	 * @param userEmail
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
 }

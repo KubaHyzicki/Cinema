@@ -24,4 +24,16 @@ public class Booking {
 		throw new UnsupportedOperationException();
 	}
 
+	public Ticket getTicket() {
+		return this.ticket;
+	}
+
+	/**
+	 * 
+	 * @param ticket
+	 */
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 }

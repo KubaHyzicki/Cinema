@@ -30,4 +30,28 @@ public class DisplayedMovies {
 		throw new UnsupportedOperationException();
 	}
 
+	public ArrayList<Movie> getMovies() {
+		return this.movies;
+	}
+
+	/**
+	 * 
+	 * @param movies
+	 */
+	public void setMovies(ArrayList<Movie> movies) {
+		this.movies = movies;
+	}
+
+	public Date getDate() {
+		return this.date;
+	}
+
+	/**
+	 * 
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 }

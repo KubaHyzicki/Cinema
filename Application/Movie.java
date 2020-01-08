@@ -29,4 +29,52 @@ public class Movie {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getTitle() {
+		return this.title;
+	}
+
+	/**
+	 * 
+	 * @param title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	/**
+	 * 
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Float getRating() {
+		return this.rating;
+	}
+
+	/**
+	 * 
+	 * @param rating
+	 */
+	public void setRating(Float rating) {
+		this.rating = rating;
+	}
+
+	public ArrayList<String> getOpinions() {
+		return this.opinions;
+	}
+
+	/**
+	 * 
+	 * @param opinions
+	 */
+	public void setOpinions(ArrayList<String> opinions) {
+		this.opinions = opinions;
+	}
+
 }

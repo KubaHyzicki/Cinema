@@ -47,4 +47,28 @@ public abstract class User {
 		throw new UnsupportedOperationException();
 	}
 
+	public LoginDetails getLoginDetails() {
+		return this.loginDetails;
+	}
+
+	/**
+	 * 
+	 * @param loginDetails
+	 */
+	public void setLoginDetails(LoginDetails loginDetails) {
+		this.loginDetails = loginDetails;
+	}
+
+	public Date getDateOfBirth() {
+		return this.dateOfBirth;
+	}
+
+	/**
+	 * 
+	 * @param dateOfBirth
+	 */
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 }

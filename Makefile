@@ -1,2 +1,2 @@
 cinema:
-	javac Application/Cinema.java
+	javac main.java

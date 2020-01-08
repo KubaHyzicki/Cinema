@@ -1,4 +1,5 @@
 package Application.Users;
+import java.util.Date;
 
 public abstract class User {
 

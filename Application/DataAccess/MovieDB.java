@@ -1,6 +1,8 @@
 package Application.DataAccess;
 
 import Application.*;
+import java.sql.Time;
+import java.util.ArrayList;
 
 public interface MovieDB {
 

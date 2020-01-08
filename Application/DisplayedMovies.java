@@ -1,6 +1,9 @@
 package Application;
 
 import java.util.*;
+import java.util.Date;
+import java.sql.Time;
+import java.util.ArrayList;
 
 public class DisplayedMovies {
 

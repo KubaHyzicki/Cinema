@@ -2,6 +2,9 @@ package Application.Tickets;
 
 import Application.*;
 import Application.Users.*;
+import java.util.Date;
+import java.sql.Time;
+
 
 public class Purchase {
 

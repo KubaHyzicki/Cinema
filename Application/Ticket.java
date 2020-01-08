@@ -1,4 +1,6 @@
 package Application;
+import java.util.Date;
+import java.sql.Time;
 
 public class Ticket {
 

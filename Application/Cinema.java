@@ -1,5 +1,9 @@
 package Application;
 
+import java.util.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.awt.image.BufferedImage;
 import Application.Users.*;
 
 public class Cinema {

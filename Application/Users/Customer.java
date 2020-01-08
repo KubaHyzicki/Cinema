@@ -2,6 +2,7 @@ package Application.Users;
 
 import java.util.*;
 import Application.*;
+import java.util.ArrayList;
 
 public class Customer extends User {
 

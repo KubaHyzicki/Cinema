@@ -1,1 +1,6 @@
+# java files:
 *.class
+
+# intellij files:
+.idea
+Cinema.iml

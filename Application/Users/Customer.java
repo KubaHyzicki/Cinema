@@ -27,7 +27,7 @@ public class Customer extends User {
 		throw new UnsupportedOperationException();
 	}
 
-	public ArrayList<Ticket> getTickets() {
+	public Collection<ArrayList<Ticket>> getTickets() {
 		return this.tickets;
 	}
 
@@ -35,7 +35,7 @@ public class Customer extends User {
 	 * 
 	 * @param tickets
 	 */
-	public void setTickets(ArrayList<Ticket> tickets) {
+	public void setTickets(Collection<ArrayList<Ticket>> tickets) {
 		this.tickets = tickets;
 	}
 

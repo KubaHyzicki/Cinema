@@ -66,7 +66,7 @@ public class Movie {
 		this.rating = rating;
 	}
 
-	public ArrayList<String> getOpinions() {
+	public Collection<ArrayList<String>> getOpinions() {
 		return this.opinions;
 	}
 
@@ -74,7 +74,7 @@ public class Movie {
 	 * 
 	 * @param opinions
 	 */
-	public void setOpinions(ArrayList<String> opinions) {
+	public void setOpinions(Collection<ArrayList<String>> opinions) {
 		this.opinions = opinions;
 	}
 

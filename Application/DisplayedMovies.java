@@ -33,7 +33,7 @@ public class DisplayedMovies {
 		throw new UnsupportedOperationException();
 	}
 
-	public ArrayList<Movie> getMovies() {
+	public Collection<ArrayList<Movie>> getMovies() {
 		return this.movies;
 	}
 
@@ -41,7 +41,7 @@ public class DisplayedMovies {
 	 * 
 	 * @param movies
 	 */
-	public void setMovies(ArrayList<Movie> movies) {
+	public void setMovies(Collection<ArrayList<Movie>> movies) {
 		this.movies = movies;
 	}
 

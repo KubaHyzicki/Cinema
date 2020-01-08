@@ -12,6 +12,11 @@ public class Employee extends User {
 	 * @param loginDetails
 	 * @param dateOfBirth
 	 */
+	public Employee() {
+		// TODO - implement Employee.Employee
+		throw new UnsupportedOperationException();
+	}
+
 	public Employee(LoginDetails loginDetails, Date dateOfBirth) {
 		// TODO - implement Employee.Employee
 		throw new UnsupportedOperationException();

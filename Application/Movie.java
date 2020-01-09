@@ -17,8 +17,8 @@ public class Movie {
 	 * @param description
 	 */
 	public Movie(String title, String description) {
-		// TODO - implement Movie.Movie
-		throw new UnsupportedOperationException();
+		this.title = title;
+		this.description = description;
 	}
 
 	/**

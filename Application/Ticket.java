@@ -21,8 +21,6 @@ public class Ticket {
 		this.movie = movie;
 		this.date = date;
 		this.price = price;
-		System.out.print("ciastko\n");
-		System.out.print("ciastko\n");
 	}
 
 	public int getReservationNo() {

@@ -20,7 +20,6 @@ public class Cinema {
 	private EmployeeManagement employeeManagement;
 
 	public Cinema() {
-
 	}
 
 	/**
@@ -70,6 +69,7 @@ public class Cinema {
 	 * @param time
 	 */
 	public boolean bookTicket(Customer customer, Movie movie, Date screeningDate, Time time) {
+		System.out.print("Ignoring loggedIn & hasAvailableSeats, to be replaced by Mock later\n");
 		// if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
 		// 	return false;
 
@@ -78,6 +78,7 @@ public class Cinema {
 		Ticket ticket = booking.bookTicket(customer, movie, screeningDate, time);
 
 		if(ticket != null) {
+			System.out.print("Add ticket to user account\n");
 			addTicketToUserAccount(ticket);
 			return true;
 		} else {

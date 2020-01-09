@@ -40,14 +40,17 @@ public class Booking {
 			}
 		};
 
+		System.out.print("Get ticket price\n");
 		float price = movie.getPrice();
 
+		System.out.print("Creating ticket\n");
 		Ticket ticket = new Ticket(movie, screeningDate, price);
-
+		System.out.print("setWasPaid=false\n");
 		ticket.setWasPaid(false);
 
 		try {
 			//Dodanie biletu do bazy danych
+			System.out.print("Add ticket to database\n");
 			 ticketDB.addTicket(ticket);
 		} catch (Exception exc) {
 			return null;

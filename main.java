@@ -14,7 +14,9 @@ class App {
 		Movie movie = new Movie("Pocahontas","Czy wiesz czemu wilk tak wyje w księżycooową noc? Bo było ciemno i się w mały palec walnąąął...");
 		Date screeningDate = new Date(2020, 2, 10);
 		Time time = new Time(13, 13, 13);
-		cinema.bookTicket(customer, movie, screeningDate, time);
+		if(cinema.bookTicket(customer, movie, screeningDate, time)){
+			System.out.print("Succesfully booked ticket\n");
+		}
 		// cinema.run();
 	}
 }

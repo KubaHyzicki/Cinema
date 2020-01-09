@@ -20,7 +20,7 @@ public class Cinema {
 	private EmployeeManagement employeeManagement;
 
 	public Cinema() {
-
+		loggedIn = true;
 	}
 
 	/**

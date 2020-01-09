@@ -2,6 +2,7 @@ package Application.Users;
 import java.awt.image.BufferedImage;
 
 import Application.*;
+import Application.Tickets.*;
 
 public class CustomerService extends Employee {
 

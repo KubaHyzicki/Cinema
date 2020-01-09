@@ -7,8 +7,9 @@ public class Movie {
 
 	private String title;
 	private String description;
-	private Float rating;
-	private Collection<ArrayList<String>> opinions;
+	private float rating;
+	private ArrayList<String> opinions;
+	private float price;
 
 	/**
 	 * 
@@ -62,11 +63,11 @@ public class Movie {
 	 * 
 	 * @param rating
 	 */
-	public void setRating(Float rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
-	public Collection<ArrayList<String>> getOpinions() {
+	public ArrayList<String> getOpinions() {
 		return this.opinions;
 	}
 
@@ -74,8 +75,21 @@ public class Movie {
 	 * 
 	 * @param opinions
 	 */
-	public void setOpinions(Collection<ArrayList<String>> opinions) {
+	public void setOpinions(ArrayList<String> opinions) {
 		this.opinions = opinions;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	/**
+	 * 
+	 * @param price
+	 */
+	public void setPrice(int price) {
+		// TODO - implement Movie.setPrice
+		throw new UnsupportedOperationException();
 	}
 
 }

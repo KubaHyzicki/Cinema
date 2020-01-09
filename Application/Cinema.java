@@ -4,7 +4,11 @@ import java.util.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
+
+import Application.DataAccess.TicketDB;
+import Application.Tickets.Booking;
 import Application.Users.*;
+import Application.Tickets.*;
 
 public class Cinema {
 
@@ -16,8 +20,7 @@ public class Cinema {
 	private EmployeeManagement employeeManagement;
 
 	public Cinema() {
-		// TODO - implement Cinema.Cinema
-		throw new UnsupportedOperationException();
+
 	}
 
 	/**
@@ -67,8 +70,19 @@ public class Cinema {
 	 * @param time
 	 */
 	public boolean bookTicket(Customer customer, Movie movie, Date screeningDate, Time time) {
-		// TODO - implement Cinema.bookTicket
-		throw new UnsupportedOperationException();
+		if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
+			return false;
+
+		Booking booking = new Booking();
+
+		Ticket ticket = booking.bookTicket(customer, movie, screeningDate, time);
+
+		if(ticket != null) {
+			addTicketToUserAccount(ticket);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -88,8 +102,29 @@ public class Cinema {
 	 * @param ticket
 	 */
 	public void addTicketToUserAccount(Ticket ticket) {
-		// TODO - implement Cinema.addTicketToUserAccount
-		throw new UnsupportedOperationException();
+
+		TicketDB ticketDB = new TicketDB() {
+			@Override
+			public void addTicket(Ticket ticket) {
+
+			}
+
+			@Override
+			public void addTicketToUser(Ticket ticket, User user) {
+
+			}
+
+			@Override
+			public void modifyTicket(Ticket ticket) {
+
+			}
+		};
+
+		ticketDB.addTicketToUser(ticket, user);
+
+		Customer customer = (Customer) user;
+		customer.addTicket(ticket);
+
 	}
 
 	public void changeProfile() {
@@ -284,6 +319,13 @@ public class Cinema {
 	 */
 	public void setEmployeeManagement(EmployeeManagement employeeManagement) {
 		this.employeeManagement = employeeManagement;
+	}
+
+	private boolean hasAvailableSeats(Movie movie, Date screeningDate, Time time) {
+		// sprawdzanie wolnych miejsc
+
+		return true;
+
 	}
 
 }

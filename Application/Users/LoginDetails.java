@@ -16,8 +16,9 @@ public class LoginDetails {
 	 * @param emailAddress
 	 */
 	public LoginDetails(String userLogin, String userPassword, String emailAddress) {
-		// TODO - implement LoginDetails.LoginDetails
-		throw new UnsupportedOperationException();
+		this.userLogin = userLogin;
+		this.userPassword = userPassword;
+		this.userEmail = emailAddress;
 	}
 
 	public String getUserLogin() {

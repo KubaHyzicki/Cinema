@@ -2,6 +2,7 @@ package Application.DataAccess;
 
 import Application.*;
 import Application.Users.*;
+import Application.Tickets.*;
 
 public interface TicketDB {
 

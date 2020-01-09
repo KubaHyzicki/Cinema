@@ -3,10 +3,11 @@ package Application.Users;
 import java.util.*;
 import Application.*;
 import java.util.ArrayList;
+import Application.Tickets.*;
 
 public class Customer extends User {
 
-	private Collection<ArrayList<Ticket>> tickets;
+	private ArrayList<Ticket> tickets;
 
 	/**
 	 * 
@@ -14,8 +15,10 @@ public class Customer extends User {
 	 * @param dateOfBirth
 	 */
 	public Customer(LoginDetails loginDetails, Date dateOfBirth) {
-		// TODO - implement Customer.Customer
-		throw new UnsupportedOperationException();
+		super.setLoginDetails(loginDetails);
+		super.setDateOfBirth(dateOfBirth);
+
+		tickets = new ArrayList<Ticket>();
 	}
 
 	/**
@@ -23,11 +26,15 @@ public class Customer extends User {
 	 * @param ticket
 	 */
 	public void addTicket(Ticket ticket) {
-		// TODO - implement Customer.addTicket
-		throw new UnsupportedOperationException();
+
+		boolean contains = tickets.contains(ticket);
+
+		if(!contains)
+			tickets.add(ticket);
+
 	}
 
-	public Collection<ArrayList<Ticket>> getTickets() {
+	public ArrayList<Ticket> getTickets() {
 		return this.tickets;
 	}
 
@@ -35,7 +42,7 @@ public class Customer extends User {
 	 * 
 	 * @param tickets
 	 */
-	public void setTickets(Collection<ArrayList<Ticket>> tickets) {
+	public void setTickets(ArrayList<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 

@@ -7,8 +7,7 @@ public abstract class User {
 	protected Date dateOfBirth;
 
 	public User() {
-		// TODO - implement User.User
-		throw new UnsupportedOperationException();
+
 	}
 
 	/**

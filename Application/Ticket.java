@@ -18,8 +18,11 @@ public class Ticket {
 	 * @param price
 	 */
 	public Ticket(Movie movie, Date date, Float price) {
-		// TODO - implement Ticket.Ticket
-		throw new UnsupportedOperationException();
+		this.movie = movie;
+		this.date = date;
+		this.price = price;
+		System.out.print("ciastko\n");
+		System.out.print("ciastko\n");
 	}
 
 	public int getReservationNo() {

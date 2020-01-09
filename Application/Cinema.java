@@ -70,8 +70,8 @@ public class Cinema {
 	 * @param time
 	 */
 	public boolean bookTicket(Customer customer, Movie movie, Date screeningDate, Time time) {
-		if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
-			return false;
+		// if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
+		// 	return false;
 
 		Booking booking = new Booking();
 

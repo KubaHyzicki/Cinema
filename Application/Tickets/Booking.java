@@ -3,15 +3,18 @@ package Application.Tickets;
 import Application.*;
 import Application.DataAccess.TicketDB;
 import Application.Users.*;
+
+import java.sql.SQLException;
 import java.util.Date;
 import java.sql.Time;
 
 public class Booking {
 
 	private Ticket ticket;
+	private TicketDB ticketDB;
 
-	public Booking() {
-
+	public Booking(TicketDB ticketDB) {
+		this.ticketDB = ticketDB;
 	}
 
 	/**
@@ -23,23 +26,6 @@ public class Booking {
 	 */
 	public Ticket bookTicket(Customer customer, Movie movie, Date screeningDate, Time time) {
 		//Polaczenie z Baza danych
-		TicketDB ticketDB = new TicketDB() {
-			@Override
-			public void addTicket(Ticket ticket) {
-
-			}
-
-			@Override
-			public void addTicketToUser(Ticket ticket, User user) {
-
-			}
-
-			@Override
-			public void modifyTicket(Ticket ticket) {
-
-			}
-		};
-
 		System.out.print("Get ticket price\n");
 		float price = movie.getPrice();
 
@@ -51,8 +37,9 @@ public class Booking {
 		try {
 			//Dodanie biletu do bazy danych
 			System.out.print("Add ticket to database\n");
-			 ticketDB.addTicket(ticket);
+			ticketDB.addTicket(ticket);
 		} catch (Exception exc) {
+			exc.printStackTrace();
 			return null;
 		}
 
@@ -71,4 +58,11 @@ public class Booking {
 		this.ticket = ticket;
 	}
 
+	public TicketDB getTicketDB() {
+		return ticketDB;
+	}
+
+	public void setTicketDB(TicketDB ticketDB) {
+		this.ticketDB = ticketDB;
+	}
 }

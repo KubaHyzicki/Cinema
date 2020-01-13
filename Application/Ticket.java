@@ -1,6 +1,7 @@
 package Application;
 import java.util.Date;
 import java.sql.Time;
+import java.util.Objects;
 
 public class Ticket {
 
@@ -95,4 +96,21 @@ public class Ticket {
 		this.wasUsed = wasUsed;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Ticket ticket = (Ticket) o;
+		return reservationNo == ticket.reservationNo &&
+				wasPaid == ticket.wasPaid &&
+				wasUsed == ticket.wasUsed &&
+				movie.equals(ticket.movie) &&
+				date.equals(ticket.date) &&
+				price.equals(ticket.price);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(reservationNo, movie, date, price, wasPaid, wasUsed);
+	}
 }

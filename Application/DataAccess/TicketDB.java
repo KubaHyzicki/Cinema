@@ -4,25 +4,27 @@ import Application.*;
 import Application.Users.*;
 import Application.Tickets.*;
 
+import java.sql.SQLException;
+
 public interface TicketDB {
 
 	/**
 	 * 
 	 * @param ticket
 	 */
-	void addTicket(Ticket ticket);
+	void addTicket(Ticket ticket) throws SQLException;
 
 	/**
 	 * 
 	 * @param ticket
 	 * @param user
 	 */
-	void addTicketToUser(Ticket ticket, User user);
+	void addTicketToUser(Ticket ticket, User user) throws SQLException;
 
 	/**
 	 * 
 	 * @param ticket
 	 */
-	void modifyTicket(Ticket ticket);
+	void modifyTicket(Ticket ticket) throws SQLException;
 
 }

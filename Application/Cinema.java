@@ -1,5 +1,6 @@
 package Application;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -19,7 +20,11 @@ public class Cinema {
 	private CustomerService customerService;
 	private EmployeeManagement employeeManagement;
 
-	public Cinema() {
+
+	private TicketDB ticketDB;
+
+	public Cinema(TicketDB ticketDB) {
+		this.ticketDB = ticketDB;
 	}
 
 	/**
@@ -73,7 +78,22 @@ public class Cinema {
 		// if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
 		// 	return false;
 
-		Booking booking = new Booking();
+		Booking booking = new Booking(new TicketDB() {
+			@Override
+			public void addTicket(Ticket ticket) {
+
+			}
+
+			@Override
+			public void addTicketToUser(Ticket ticket, User user) {
+
+			}
+
+			@Override
+			public void modifyTicket(Ticket ticket) {
+
+			}
+		});
 
 		Ticket ticket = booking.bookTicket(customer, movie, screeningDate, time);
 
@@ -102,29 +122,21 @@ public class Cinema {
 	 * 
 	 * @param ticket
 	 */
-	public void addTicketToUserAccount(Ticket ticket) {
-
-		TicketDB ticketDB = new TicketDB() {
-			@Override
-			public void addTicket(Ticket ticket) {
-
+	public Boolean addTicketToUserAccount(Ticket ticket) {
+		if(ticket==null)
+			return false;
+		else {
+			try {
+				ticketDB.addTicketToUser(ticket, user);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
 			}
 
-			@Override
-			public void addTicketToUser(Ticket ticket, User user) {
-
-			}
-
-			@Override
-			public void modifyTicket(Ticket ticket) {
-
-			}
-		};
-
-		ticketDB.addTicketToUser(ticket, user);
-
-		Customer customer = (Customer) user;
-		customer.addTicket(ticket);
+			Customer customer = (Customer) user;
+			customer.addTicket(ticket);
+			return true;
+		}
 
 	}
 
@@ -329,4 +341,11 @@ public class Cinema {
 
 	}
 
+	public TicketDB getTicketDB() {
+		return ticketDB;
+	}
+
+	public void setTicketDB(TicketDB ticketDB) {
+		this.ticketDB = ticketDB;
+	}
 }

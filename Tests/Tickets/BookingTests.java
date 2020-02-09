@@ -1,52 +1,63 @@
 package Tests.Tickets;
 
+import Application.Cinema;
 import Application.DataAccess.*;
 import Application.Movie;
 import Application.Ticket;
 import Application.Tickets.Booking;
 import Application.Users.*;
 import org.junit.*;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BookingTests {
-    private TicketDB ticketDB;
-    private Booking booking;
-    private Customer customer;
-    private Movie movie;
-    private Date screeningDate;
-    private Time time;
+    @Mock
+    Booking booking;
+    TicketDB ticketDB;
+    Customer customer;
+    Time time;
 
     @Before
     public void setUp() {
         ticketDB = mock(TicketDB.class);
-        booking = new Booking(ticketDB);
-        customer = new Customer(new LoginDetails("user",
-                "pass", "email@gmail.com"),
-                new Date(1997,05,13));
-        movie = new Movie("Pulp Fiction", "desc");
-        screeningDate = new Date(2020,02,01);
-        time = new Time(20,00,00);
-
-    }
-
-    @After
-    public void cleanUp() {
-        booking.setTicketDB(null);
+        booking = new Booking( mock(TicketDB.class));
+        customer = mock(Customer.class);
+        time = mock(Time.class);
     }
 
     @Test
-    public void shouldBookTicketProperly() {
-        Ticket bookedTicket = new Ticket(movie, screeningDate, movie.getPrice());
-        assertEquals(bookedTicket, booking.bookTicket(customer, movie, screeningDate, time));
+    public void bookTicketReturnsTicketWhenProperlyCalled() throws SQLException {
+        Movie movie = new Movie("Pocahontas","Czy wiesz czemu wilk tak wyje w księżycooową noc? Bo było ciemno i się w mały palec walnąąął...");
+        movie.setPrice((int) 66.6);
+        Date date = new Date(1234,12,22);
+        Ticket ticket = new Ticket(movie, date, movie.getPrice());
+        doNothing().when(ticketDB).addTicket(any());
+        assertEquals(ticket, booking.bookTicket(customer, movie, date, time));
     }
 
-//    @Test
-//    public void shouldntAddTicketToUserAccount() {
-//        assertFalse(cinema.addTicketToUserAccount(null));
-//    }
+    @Test
+    public void bookTicketCheckIfTicketIsNotInitiallyPaid() throws SQLException {
+        Movie movie = new Movie("Pocahontas","Czy wiesz czemu wilk tak wyje w księżycooową noc? Bo było ciemno i się w mały palec walnąąął...");
+        movie.setPrice((float) 66.6);
+        Date date = new Date(1234,12,22);
+        doNothing().when(ticketDB).addTicket(any());
+        assertFalse(booking.bookTicket(customer, movie, date, time).getWasPaid());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void bookTicketThrowNullPointerExceptionIfMovieIsNull() throws SQLException {
+        Movie movie = null;
+        Date date = new Date(1234,12,22);
+        verify(booking.bookTicket(customer, movie, date, time));
+    }
 
 }

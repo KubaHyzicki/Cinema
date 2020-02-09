@@ -21,7 +21,12 @@ public class Movie {
 		this.description = description;
 	}
 
-	/**
+    public Movie() {
+        this.title="";
+        this.description="";
+    }
+
+    /**
 	 * 
 	 * @param rate
 	 * @param opinion
@@ -87,9 +92,24 @@ public class Movie {
 	 * 
 	 * @param price
 	 */
-	public void setPrice(int price) {
-		// TODO - implement Movie.setPrice
-		throw new UnsupportedOperationException();
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Movie movie = (Movie) o;
+		return Float.compare(movie.rating, rating) == 0 &&
+				Float.compare(movie.price, price) == 0 &&
+				title.equals(movie.title) &&
+				Objects.equals(description, movie.description) &&
+				Objects.equals(opinions, movie.opinions);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(title, description, rating, opinions, price);
+	}
 }

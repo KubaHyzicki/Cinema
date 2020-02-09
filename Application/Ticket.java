@@ -60,7 +60,7 @@ public class Ticket {
 		this.date = date;
 	}
 
-	public Float getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 
@@ -68,7 +68,7 @@ public class Ticket {
 	 * 
 	 * @param price
 	 */
-	public void setPrice(Float price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

@@ -20,8 +20,26 @@ public class Cinema {
 	private CustomerService customerService;
 	private EmployeeManagement employeeManagement;
 
-
 	private TicketDB ticketDB;
+
+	public Cinema(){
+		this.ticketDB = new TicketDB() {
+			@Override
+			public void addTicket(Ticket ticket) throws SQLException {
+
+			}
+
+			@Override
+			public void addTicketToUser(Ticket ticket, User user) throws SQLException {
+
+			}
+
+			@Override
+			public void modifyTicket(Ticket ticket) throws SQLException {
+
+			}
+		};
+	}
 
 	public Cinema(TicketDB ticketDB) {
 		this.ticketDB = ticketDB;
@@ -74,9 +92,9 @@ public class Cinema {
 	 * @param time
 	 */
 	public boolean bookTicket(Customer customer, Movie movie, Date screeningDate, Time time) {
-		System.out.print("Ignoring loggedIn & hasAvailableSeats, to be replaced by Mock later\n");
-		// if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
-		// 	return false;
+//		System.out.print("Ignoring loggedIn & hasAvailableSeats, to be replaced by Mock later\n");
+		 if(loggedIn == false || ! hasAvailableSeats(movie, screeningDate, time))
+		 	return false;
 
 		Booking booking = new Booking(new TicketDB() {
 			@Override
@@ -123,16 +141,16 @@ public class Cinema {
 	 * @param ticket
 	 */
 	public Boolean addTicketToUserAccount(Ticket ticket) {
-		if(ticket==null)
+		if(ticket==null){
 			return false;
+		}
 		else {
 			try {
 				ticketDB.addTicketToUser(ticket, user);
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 				return false;
 			}
-
 			Customer customer = (Customer) user;
 			customer.addTicket(ticket);
 			return true;

@@ -1,0 +1,2 @@
+cinema:
+	javac main.java
